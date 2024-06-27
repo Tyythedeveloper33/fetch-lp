@@ -5,26 +5,32 @@ Paste your code for fetch requests here once you finish each phase.
 // `application/x-www-form-urlencoded`
 // POST
 /* ============================== Phase 1 ============================== */
-function fetchNewProduct() {
-    let url = "http://localhost:5000/products"
-     fetch(url, {
-        method: 'POST',
-        body: { name: 'shed', description: 'tools', price: '20.99', categories: 'grocery' },
 
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        }
-    })
-    ;
-}
+fetch('/products', {
+    method: "POST",
+    headers: {
+        "Content-Type" : "application/x-www-form-urlencoded"
+    },
+    body: "name=Caribbean+Delight+Coffee&description=Made+by+Manatee+Coffee&price=11%2E99&categories=grocery"
+})
 
-fetchNewProduct()
 // Your code here
 
 
 
 /* ============================== Phase 2 ============================== */
-
+let res = fetch('/products', {
+    method: "POST",
+    headers: {
+        "Content-Type" : "application/x-www-form-urlencoded"
+    },
+    body: "name=Caribbean+Delight+Coffee&description=Made+by+Manatee+Coffee&price=11%2E99&categories=grocery"
+})
+ console.log('res status', res.status)
+//  console.log('success boolean', res.ok)
+ console.log('content-type(header)',res.headers.get('Content-Type'))
+ console.log("Response Body", await res.text())
+ console.log("Response url",  res.url)
 // Your code here
 
 
